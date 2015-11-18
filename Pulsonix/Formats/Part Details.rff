@@ -1,0 +1,148 @@
+<Format Type>Report
+<Format Version>4.0
+<Context Parts Library>
+<Format Description Start>
+Reports each selected part in full,
+including pin mappings and swap groups
+<Format Description End>
+<Standard Report Header> 0 3 
+<LIST> 0 7 14039 <SORT> 0 1 14040 0 ""
+    <FIELD> 1 3 14041 0 1 0 0 "" "" <COLUMN> 0 0 0 0
+    <Underline> 1 3 - 
+    <LIST> 1 7 14434 <SORT> 1 1 14410 0 "" <SORT> 1 1 14410 0 ""
+        <Blank Lines> 2 3 1 
+        <FIELD> 2 3 14410 0 1 0 1 "" "" <COLUMN> 0 0 0 0
+        <Underline> 2 3 - 
+        <Comment> 2 3 "General Part Inforrmation"
+        <Text> 2 3 0 "        Last Saved:" <COLUMN> 0 0 24 0
+        <FIELD> 2 3 14047 0 1 0 0 "" "" <COLUMN> 0 0 0 0
+        <FIELD> 2 3 14048 0 1 0 1 " " ""
+        <Text> 2 3 0 "        Description:" <COLUMN> 0 0 24 0
+        <FIELD> 2 3 14411 0 1 0 1 "" "" <COLUMN> 0 0 0 0
+        <Text> 2 3 0 "        Family:" <COLUMN> 0 0 24 0
+        <FIELD> 2 3 14883 0 1 0 1 "" "" <COLUMN> 0 0 0 0 <ATTRIB> "<Part Family>"
+        <Text> 2 3 0 "        Group:" <COLUMN> 0 0 24 0
+        <IF> 2 3 14064 0 1 4 0 0 "1"
+            <FIELD> 3 3 14061 0 1 0 1 "" "" <COLUMN> 0 0 0 0
+        <End Of Line> 2 3 
+        <Text> 2 3 0 "        Name Stem:" <COLUMN> 0 0 24 0
+        <FIELD> 2 3 14382 0 1 0 1 "" "" <COLUMN> 0 0 20 0
+        <Text> 2 3 0 "        Type:" <COLUMN> 0 0 24 0
+        <Variable> 2 3 "HasFootprint" 4 0 0 "true"
+        <IF> 2 3 14389 0 1 0 1 0 "true"
+            <Text> 3 3 1 "Connector" <COLUMN> 0 0 0 0
+        <Else> 2 3
+            <IF> 3 7 14065 0 1 0 1 0 "true"
+                <Text> 4 3 1 "Associated Part" <COLUMN> 0 0 0 0
+                <Variable> 4 3 "HasFootprint" 4 0 0 "false"
+            <Else> 3 7
+                <IF> 4 7 14390 0 1 0 1 0 "true"
+                    <Text> 5 3 1 "PCB Only" <COLUMN> 0 0 0 0
+                <Else> 4 7
+                    <IF> 5 7 14391 0 1 0 1 0 "true"
+                        <Text> 6 3 1 "Schematics Only" <COLUMN> 0 0 0 0
+                        <Variable> 6 3 "HasFootprint" 4 0 0 "false"
+                    <Else> 5 7
+                        <Text> 6 3 1 "Normal" <COLUMN> 0 0 0 0
+        <End Of Line> 2 3 
+        <Text> 2 3 0 "        Number of Pins:" <COLUMN> 0 0 24 0
+        <FIELD> 2 3 14387 0 1 0 1 "" "" <COLUMN> 0 0 0 0 <LIST> "List of Part Pins"
+        <Comment> 2 3 "List the footprints (if any)"
+        <IF> 2 3 14465 0 1 0 0 0 "true" <Variable> "HasFootprint"
+            <Blank Lines> 3 3 1 
+            <Text> 3 3 0 "        Footprints:" <COLUMN> 0 0 24 0
+            <Variable> 3 3 "DefaultFootprintName" 1 0 1 14598 0
+            <LIST> 3 7 14056 <SORT> 1 1 14424 0 ""
+                <IF> 4 7 14427 0 1 4 0 0 "1" <LIST> "List of Footprint Names"
+                    <Text> 5 3 0 " " <COLUMN> 0 0 24 0
+                <FIELD> 4 3 14424 0 1 0 0 "" "" <COLUMN> 0 0 0 0
+                <IF> 4 7 14424 0 1 6 0 1 "DefaultFootprintName"
+                    <Text> 5 3 0 "    (Default)"
+                <End Of Line> 4 3 
+        <Comment> 2 3 "List the attributes"
+        <Blank Lines> 2 3 1 
+        <Text> 2 3 0 "        Attributes:" <COLUMN> 0 0 24 0
+        <Variable> 2 3 "FirstAttribute" 4 0 0 "true"
+        <LIST> 2 3 14046 <SORT> 1 0 14883 0 ""
+            <IF> 3 7 14883 0 0 7 0 0 "<Part Family>" <ATTRIB> ""
+                <IF> 4 7 14465 0 1 1 0 0 "true" <Variable> "FirstAttribute"
+                    <Text> 5 3 0 " " <COLUMN> 0 0 24 0
+                <FIELD> 4 3 14883 0 0 0 0 "" "" <COLUMN> 0 0 0 0 <ATTRIB> ""
+                <FIELD> 4 3 14883 0 1 0 1 " = " "" <ATTRIB> ""
+                <Variable> 4 3 "FirstAttribute" 4 0 0 "false"
+        <End Of Line> 2 3 
+        <Text> 2 3 1 "        Pin Attributes:" <COLUMN> 0 0 24 0
+        <LIST> 2 3 14051 <SORT> 1 1 14431 0 ""
+            <IF> 3 7 14387 0 1 4 0 0 "0" <LIST> "Attribute"
+                <Text> 4 3 0 " " <COLUMN> 0 0 24 0
+                <FIELD> 4 3 14431 0 1 0 0 "Pin " "" <COLUMN> 0 0 10 0
+                <LIST> 4 7 14046 <SORT> 1 1 14883 0 "" <SORT> 1 1 14883 0 ""
+                    <IF> 5 7 14427 0 1 4 0 0 "1" <LIST> "Attribute"
+                        <Text> 6 3 0 " " <COLUMN> 0 0 34 0
+                    <FIELD> 5 3 14883 0 0 0 0 "" "" <COLUMN> 0 0 0 0 <ATTRIB> ""
+                    <FIELD> 5 3 14883 0 1 0 1 " = " "" <ATTRIB> ""
+                <Blank Lines> 4 3 1 
+        <Comment> 2 3 "List the associated parts if any"
+        <IF> 2 3 14387 0 1 4 0 0 "0" <LIST> "Associated Part"
+            <Blank Lines> 3 3 1 
+            <Text> 3 3 1 "        Associated Parts:" <COLUMN> 0 0 24 0
+            <LIST> 3 3 14957 <SORT> 1 1 14410 0 ""
+                <Text> 4 3 0 " " <COLUMN> 0 0 24 0
+                <FIELD> 4 3 14410 0 1 0 0 "" "" <COLUMN> 0 0 24 0
+                <FIELD> 4 3 14412 0 1 0 1 " " "" <COLUMN> 0 0 0 0
+        <Blank Lines> 2 3 1 
+        <Comment> 2 3 "List the pins"
+        <LIST> 2 7 14096 <SORT> 1 1 14094 0 ""
+            <Variable> 3 3 "hasRepresentations" 4 0 0 "false"
+            <IF> 3 7 14094 0 1 7 0 0 ""
+                <Text> 4 3 0 " " <COLUMN> 0 0 8 0
+                <FIELD> 4 3 14094 0 1 0 1 "Representation: " "" <COLUMN> 0 0 0 0
+                <Blank Lines> 4 11 1 
+                <Variable> 4 3 "hasRepresentations" 4 0 0 "true"
+            <IF> 3 3 14465 0 1 0 0 0 "true" <Variable> "hasRepresentations"
+                <Text> 4 3 0 " " <COLUMN> 0 0 4 0
+            <Text> 3 3 1 "        Footprint Pin      Pin Name       Net         Pin Type      Pin Network" <COLUMN> 0 0 0 0
+            <IF> 3 3 14465 0 1 0 0 0 "true" <Variable> "hasRepresentations"
+                <Text> 4 3 0 " " <COLUMN> 0 0 4 0
+            <Text> 3 3 1 "        -------------      --------       ---         --------      -----------" <COLUMN> 0 0 0 0
+            <LIST> 3 3 14051 <SORT> 1 1 14052 0 ""
+                <IF> 4 3 14465 0 1 0 0 0 "true" <Variable> "hasRepresentations"
+                    <Text> 5 3 0 " " <COLUMN> 0 0 4 0
+                <Text> 4 3 0 " " <COLUMN> 0 0 14 0
+                <FIELD> 4 3 14052 0 1 0 0 "" "" <COLUMN> 0 0 16 0
+                <FIELD> 4 3 14431 0 1 0 0 "" "" <COLUMN> 0 0 12 0
+                <FIELD> 4 3 14429 0 1 0 0 "" "" <COLUMN> 0 0 12 0
+                <IF> 4 7 14432 0 1 6 1 0 "<Undefined>"
+                    <Text> 5 3 0 " " <COLUMN> 0 0 16 0
+                <Else> 4 7
+                    <FIELD> 5 3 14432 0 1 0 0 "" "" <COLUMN> 0 0 16 0
+                <FIELD> 4 3 14055 0 1 0 0 "" "" <COLUMN> 0 0 0 0
+                <End Of Line> 4 3 
+            <Blank Lines> 3 3 1 
+            <Comment> 3 3 "List the gates"
+            <IF> 3 3 14465 0 1 0 0 0 "true" <Variable> "hasRepresentations"
+                <Text> 4 3 0 " " <COLUMN> 0 0 4 0
+            <Text> 3 3 1 "        Gate    Symbol          Symbol Pin   Pin Name    Logic Name    Pin Swap    Gate Swap" <COLUMN> 0 0 0 0
+            <IF> 3 3 14465 0 1 0 0 0 "true" <Variable> "hasRepresentations"
+                <Text> 4 3 0 " " <COLUMN> 0 0 4 0
+            <Text> 3 3 1 "        ----    ------          ----------   --------    ----------    --------    ---------" <COLUMN> 0 0 0 0
+            <LIST> 3 3 14049 <SORT> 1 1 14964 0 ""
+                <Variable> 4 3 "GateName" 1 0 1 14964 0
+                <Variable> 4 3 "GateSwapGroup" 1 0 1 14054 0
+                <Variable> 4 3 "GateSymbol" 1 0 1 14414 0
+                <LIST> 4 7 14051 <SORT> 1 1 14053 0 ""
+                    <IF> 5 3 14465 0 1 0 0 0 "true" <Variable> "hasRepresentations"
+                        <Text> 6 3 0 " " <COLUMN> 0 0 4 0
+                    <Text> 5 3 0 " " <COLUMN> 0 0 9 0
+                    <Variable> 5 3 "GateName" 1 3 0 0 "" "" <COLUMN> 0 0 8 0
+                    <Variable> 5 3 "GateSymbol" 1 3 0 0 "" "" <COLUMN> 0 0 18 0
+                    <FIELD> 5 3 14053 0 1 0 0 "" "" <COLUMN> 0 0 12 0
+                    <FIELD> 5 3 14431 0 1 0 0 "" "" <COLUMN> 0 0 12 0
+                    <FIELD> 5 3 14433 0 1 0 0 "" "" <COLUMN> 0 0 14 0
+                    <FIELD> 5 3 14054 0 1 0 0 "" "" <COLUMN> 0 0 12 0
+                    <Variable> 5 3 "GateSwapGroup" 1 3 0 1 "" "" <COLUMN> 0 0 11 0
+                    <Variable> 5 3 "GateName" 1 0 0 ""
+                    <Variable> 5 3 "GateSymbol" 1 0 0 ""
+                    <Variable> 5 3 "GateSwapGroup" 1 0 0 ""
+                <Blank Lines> 4 3 1 
+            <End Of Line> 3 3 

@@ -1,0 +1,36 @@
+<Format Type>Report
+<Format Version>4.0
+<Context PCB>
+<Context Schematics>
+<Format Description Start>
+Parts List CSV Output
+<Format Description End>
+<CSV> 0 3 , 
+<Text> 0 3 0 "Component Name" <COLUMN> 0 0 0 0
+<Text> 0 3 0 "Value" <COLUMN> 0 0 0 0
+<Text> 0 3 0 "Part Name" <COLUMN> 0 0 0 0
+<Text> 0 3 0 "Description" <COLUMN> 0 0 0 0
+<Text> 0 3 0 "Footprint" <COLUMN> 0 0 0 0
+<Text> 0 3 1 "Part Number" <COLUMN> 0 0 0 0
+<LIST> 0 7 14380 <SORT> 1 1 14383 0 "" <PARAM> 14410 <PARAM> 14883 <ATTRIB> "Value" <ATTRIB> "tolerance" <ATTRIB> "Voltage" <ATTRIB> "Wattage"
+    <IF> 1 7 14391 0 1 1 0 0 "true"
+        <LIST> 2 7 14942 <SORT> 1 1 14413 0 ""
+            <FIELD> 3 3 14413 0 1 0 0 "" "" <COLUMN> 0 0 0 0
+            <FIELD> 3 3 14883 0 1 0 0 "" "" <COLUMN> 0 1 0 0 <ATTRIB> "Value" <ATTRIB> "tolerance" <ATTRIB> "Voltage" <ATTRIB> "Wattage"
+            <FIELD> 3 2 14410 0 1 0 0 "" "" <COLUMN> 0 1 0 0
+            <FIELD> 3 3 14883 0 1 0 0 "" "" <COLUMN> 0 1 0 0 <ATTRIB> "<Database Key>" <ATTRIB> "<Part Name>"
+            <FIELD> 3 3 14411 0 1 0 0 "" "" <COLUMN> 0 1 0 0
+            <FIELD> 3 3 14424 0 1 0 0 "" "" <COLUMN> 0 1 0 0
+            <FIELD> 3 3 14883 0 1 0 1 "" "" <COLUMN> 0 1 0 0 <ATTRIB> "Part Number"
+<LIST> 0 7 14957 <SORT> 1 1 14410 0 ""
+    <IF> 1 7 14412 0 1 4 0 0 "0"
+        <Variable> 2 3 "count" 0 0 1 14412 0
+        <While> 2 7 "count" 4 0 "0"
+            <Text> 3 3 0 "" <COLUMN> 0 0 0 0
+            <FIELD> 3 3 14883 0 1 0 0 "" "" <COLUMN> 0 1 0 0 <ATTRIB> "Value" <ATTRIB> "tolerance" <ATTRIB> "Voltage" <ATTRIB> "Wattage"
+            <FIELD> 3 2 14410 0 1 0 0 "" "" <COLUMN> 0 1 0 0
+            <FIELD> 3 11 14883 0 1 0 0 "" "" <COLUMN> 0 1 0 0 <ATTRIB> "<Database Key>" <ATTRIB> "<Part Name>"
+            <FIELD> 3 3 14411 0 1 0 0 "" "" <COLUMN> 0 1 0 0
+            <Text> 3 3 0 "" <COLUMN> 0 0 0 0
+            <FIELD> 3 3 14883 0 1 0 1 "" "" <COLUMN> 0 1 0 0 <ATTRIB> "Part Number"
+            <Variable> 3 3 "count" 0 2 0 "1"

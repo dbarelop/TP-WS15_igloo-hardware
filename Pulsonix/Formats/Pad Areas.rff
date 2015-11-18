@@ -1,0 +1,54 @@
+<Format Type>Report
+<Format Version>4.0
+<Context PCB>
+<Comment> 0 3 ""
+<Comment> 0 3 "Calculate total area of pads for specified layers"
+<Comment> 0 3 ""
+<Standard Report Header> 0 3 
+<Comment> 0 3 ""
+<Comment> 0 3 "Prepare names of required layers"
+<Comment> 0 3 ""
+<Variable> 0 3 "Top Copper Layer Name" 1 0 0 "Top"
+<Variable> 0 3 "Bottom Copper Layer Name" 1 0 0 "Bottom"
+<Variable> 0 3 "Top Paste Layer Name" 1 0 0 "Paste Mask Top"
+<Variable> 0 11 "Bottom Paste Layer Name" 1 0 0 "Paste Mask Bottom"
+<Comment> 0 3 ""
+<Comment> 0 3 "Calculate area for top copper"
+<Comment> 0 3 ""
+<FUNCTION> 0 3 14265 1 "Top Copper Layer Name"
+<Variable> 0 3 "Total Pad Area" 3 0 0 "0"
+<LIST> 0 7 14942 <SORT> 1 1 14413 0 ""
+    <LIST> 1 7 14386 <SORT> 1 1 14413 0 "" <SORT> 1 1 14431 0 ""
+        <Variable> 2 3 "Total Pad Area" 3 1 1 14493 0
+<Text> 0 3 0 "Top Copper" <COLUMN> 0 0 15 0
+<Variable> 0 3 "Total Pad Area" 3 3 0 1 "" "" <COLUMN> 0 0 0 0
+<Comment> 0 3 ""
+<Comment> 0 3 "Calculate area for bottom copper"
+<Comment> 0 3 ""
+<FUNCTION> 0 3 14265 1 "Bottom Copper Layer Name"
+<Variable> 0 3 "Total Pad Area" 3 0 0 "0"
+<LIST> 0 7 14942 <SORT> 1 1 14413 0 ""
+    <LIST> 1 7 14386 <SORT> 1 1 14413 0 "" <SORT> 1 1 14431 0 ""
+        <Variable> 2 3 "Total Pad Area" 3 1 1 14493 0
+<Text> 0 3 0 "Bottom Copper" <COLUMN> 0 0 15 0
+<Variable> 0 3 "Total Pad Area" 3 3 0 1 "" "" <COLUMN> 0 0 0 0
+<Comment> 0 3 ""
+<Comment> 0 3 "Calculate area for top paste"
+<Comment> 0 3 ""
+<FUNCTION> 0 3 14265 1 "Top Paste Layer Name"
+<Variable> 0 3 "Total Pad Area" 3 0 0 "0"
+<LIST> 0 7 14942 <SORT> 1 1 14413 0 ""
+    <LIST> 1 7 14386 <SORT> 1 1 14413 0 "" <SORT> 1 1 14431 0 ""
+        <Variable> 2 3 "Total Pad Area" 3 1 1 14493 0
+<Text> 0 3 0 "Top Paste" <COLUMN> 0 0 15 0
+<Variable> 0 3 "Total Pad Area" 3 3 0 1 "" "" <COLUMN> 0 0 0 0
+<Comment> 0 3 ""
+<Comment> 0 3 "Calculate area for top paste"
+<Comment> 0 3 ""
+<FUNCTION> 0 3 14265 1 "Bottom Paste Layer Name"
+<Variable> 0 3 "Total Pad Area" 3 0 0 "0"
+<LIST> 0 7 14942 <SORT> 1 1 14413 0 ""
+    <LIST> 1 7 14386 <SORT> 1 1 14413 0 "" <SORT> 1 1 14431 0 ""
+        <Variable> 2 3 "Total Pad Area" 3 1 1 14493 0
+<Text> 0 3 0 "Bottom Paste" <COLUMN> 0 0 15 0
+<Variable> 0 3 "Total Pad Area" 3 3 0 1 "" "" <COLUMN> 0 0 0 0
